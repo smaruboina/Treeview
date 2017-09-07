@@ -1,0 +1,11 @@
+<ul style="list-style: none">
+  <li *ngFor="let directory of treeviewlist">
+    <span class="iconButton" (click)="directory.recursiveView()">{{directory.getIcon()}}</span>{{ directory.name }}
+    <div *ngIf="directory.expandList">
+      <ul>
+        <li *ngFor="let file of directory.treeFiles">{{file}}</li>
+      </ul>
+      <app-tree-view [treeviewlist]="directory.treeviewlist"></app-tree-view>
+    </div>
+  </li>
+</ul>
